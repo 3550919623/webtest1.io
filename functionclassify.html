@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器脚本简介</title>
+    <link rel="stylesheet" href="web1.css">
+</head>
+<body>
+    <header>
+        <h1>浏览器脚本分类</h1>
+        <nav>
+            <ul>
+                <li><a href="#home"></a></li>
+                <li><a href="#about"></a></li>
+                <li><a href="#services"></a></li>
+                <li><a href="#contact"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="Home">
+        <h2> ActiveX 控件  </h2>
+        <p>ActiveX控件是 ie 浏览器的专属技术，也是个比较古老的技术，国内各大银行的网银插件基本都是用ActiveX开发的，所以在使用网银转账的时候，很多网站都仅支持ie。但是近些年来随着手机支付技术的普遍（支付宝，手机银行，微信等），在网银支付这一块ActiveX技术也在逐渐没落。</p>
+    </section>
+    <section id="about">
+        <h2>NPAPI 插件 </h2>
+        <p>NPAPI 插件同样是个逐渐没落的技术。浏览器基本是三巨头的天下（ie，谷歌和火狐），其实我觉得也就算两巨头，因为火狐虽然有自己的内核，但是在技术发展上有点唯谷歌马首是瞻的感觉，谷歌支持啥它就跟着来，谷歌要抛弃啥它也跟着来。国内比较主流的国产浏览器也基本同时使用了ie和谷歌的内核，比如qq、360这样的浏览器就同时支持双方的插件技术。之所以说NPAPI逐渐没落是因为谷歌浏览器自从v45版本后就不支持NPAPI了，火狐也宣布会抛弃NPAPI技术，现在要想使用NPAPI就必须降低浏览器版本。</p>
+    </section>
+    <section id="services">
+        <h2> 谷歌本地消息机制（Native messaging）  </h2>
+        <p> 这种技术是谷歌特有的一种，本质上不是插件而是扩展（关于谷歌插件和扩展的区别可以参考http://www.cnplugins.com/tool/the-diff-between-extensions-plugin.html），它的原理是在谷歌扩展中启动一个单独的进程，通过扩展和这个进程进行通信，业务操作都在这个外部进程中。因为是外部进程和谷歌沙箱没有依属关系，在这个进程中干什么都可以，包括操作本地文件和外部设备。
+            关于Native messaging 相关技术的具体介绍可以参考<a href = "https://blog.csdn.net/lee353086/article/details/49362811">https://blog.csdn.net/lee353086/article/details/49362811</a></p>
+    </section>
+    <section id="contact">
+        <h2>其他类插件技术</h2>
+        <p></p>
+    </section>
+    <footer>
+        <p>大学生浏览器介绍网</p>
+    </footer>
+</body>
+</html>

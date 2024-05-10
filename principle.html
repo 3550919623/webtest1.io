@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器脚本简介</title>
+    <link rel="stylesheet" href="web1.css">
+</head>
+<body>
+    <header>
+        <h1>浏览器脚本原理介绍</h1>
+        <nav>
+            <ul>
+                <li><a href="#home"></a></li>
+                <li><a href="#about"></a></li>
+                <li><a href="#services"></a></li>
+                <li><a href="#contact"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <h2>1. 开发框架和API</h2>
+        <p>浏览器插件主要通过一套称为WebExtensions的跨浏览器API开发。核心API包括： </p>
+        <p>1.browserAction 或 pageAction：这些API允许插件在浏览器界面中添加按钮，用户点击时可以打开一个小的弹出窗口或执行其他操作。</p>
+        <p>2.tabs API：允许插件创建、修改或关闭浏览器标签页。</p>
+        <p>3.webRequest API：用于监视、修改或阻止浏览器发出的网络请求。</p>
+        <p>4.storage API：提供存储功能，使插件能够保存和检索用户设置和其他数据。</p>
+    </section>
+    <section id="about">
+        <h2>2. 插件的结构</h2>
+        <p>一个典型的浏览器插件包含以下文件：</p>
+        <p>Manifest 文件：每个插件都需要一个名为 manifest.json 的文件，它声明了插件的基本信息（如版本、名称、权限）、指向插件其他组件的链接、以及它需要使用的浏览器API。</p>
+        <p>背景脚本：在插件的整个生命周期中持续运行的JavaScript脚本，负责管理事件监听、长时间运行的操作、与内容脚本的通信等。</p>
+        <p>内容脚本：这些脚本被注入到用户访问的网页中，可以直接与网页内容交互，如读取或修改DOM、监听和响应网页事件等。</p>
+        <p>UI元素：如弹出页面，通常包含HTML和CSS，提供用户界面供用户与插件交互。</p>
+    </section>
+    <section id="services">
+        <h2></h2>
+        <p></p>
+    </section>
+    <section id="contact">
+        <h2></h2>
+        <p></p>
+    </section>
+    <footer>
+        <p>大学生浏览器介绍网</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searchable Content Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .search {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+
+        .searchTerm {
+            width: 100%;
+            border: 3px solid #00B4CC;
+            border-right: none;
+            padding: 5px;
+            height: 20px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            color: #9DBFAF;
+        }
+
+        .searchTerm:focus {
+            color: #00B4CC;
+        }
+
+        .searchButton {
+            width: 40px;
+            height: 36px;
+            border: 1px solid #00B4CC;
+            background: #00B4CC;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .wrap {
+            width: 30%;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .article {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="What are you looking for?" id="searchInput">
+            <button type="submit" class="searchButton" onclick="searchArticles()">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="articles">
+        <div class="article" data-title="The Beauty of Nature">The Beauty of Nature</div>
+        <div class="article" data-title="Technology in Modern World">Technology in Modern World</div>
+        <div class="article" data-title="Simple Recipes for Beginners">Simple Recipes for Beginners</div>
+    </div>
+
+    <script>
+        function searchArticles() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var articles = document.querySelectorAll('.article');
+            for (var i = 0; i < articles.length; i++) {
+                var title = articles[i].getAttribute('data-title').toUpperCase();
+                if (title.includes(input)) {
+                    articles[i].style.display = "";
+                } else {
+                    articles[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
