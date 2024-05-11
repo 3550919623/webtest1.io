@@ -155,3 +155,7 @@ body{
     left: 80%;
     transform: translate(-50%, -50%);
   }
+  .container {
+    display: flex;
+    justify-content: flex-end; /* 将内容推向右边 */
+}
