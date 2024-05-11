@@ -12,7 +12,7 @@
             <ul class="nav-list">
                 <li><a href="introduction.html">简介</a></li>
                 <li><a href="principle.html">原理</a></li>
-                <li><a href="functionclassify.html.html">功能描述分类</a></li>
+                <li><a href="functionclassify.html">功能描述分类</a></li>
                 <li><a href="use.html">如何下载使用</a></li>
                 <li><a href="make.html">脚本制作</a></li>
             </ul>
@@ -31,46 +31,86 @@
         <script>
             function searchArticles() {
                 var input = document.getElementById('searchInput').value.toUpperCase();
-                var articles = document.querySelectorAll('.article');
-                for (var i = 0; i < articles.length; i++) {
-                    var title = articles[i].getAttribute('data-title').toUpperCase();
-                    if (title.includes(input)) {
-                        articles[i].style.display = "";
+                var plugins = document.querySelectorAll('.plugin');
+                var foundInPlugins = false;
+                
+                // 搜索插件内容
+                for (var i = 0; i < plugins.length; i++) {
+                    var text = plugins[i].textContent.toUpperCase();
+                    if (text.includes(input)) {
+                        plugins[i].style.display = "";
+                        foundInPlugins = true;
                     } else {
-                        articles[i].style.display = "none";
+                        plugins[i].style.display = "none";
                     }
                 }
+            
+                // 文件列表包括需要搜索的HTML页面
+                var files = ["introduction.html", "principle.html", "functionclassify.html", "use.html", "make.html"];
+                var foundInFiles = false;
+            
+                // 逐个加载并搜索文件
+                files.forEach(file => {
+                    fetch(file)
+                        .then(response => response.text())
+                        .then(text => {
+                            if (text.toUpperCase().includes(input)) {
+                                foundInFiles = true;
+                                console.log("找到匹配项在文件: " + file);
+                            }
+                        })
+                        .catch(err => console.error("加载文件失败: " + file, err));
+                });
+            
+                // 根据搜索结果更新用户界面
+                setTimeout(() => {
+                    if (!foundInPlugins && !foundInFiles && input.trim() !== '') {
+                        alert('没有找到相关的插件信息或文本内容。');
+                    }
+            
+                    // 显示返回主页链接
+                    document.getElementById('returnHome').style.display = 'block';
+                }, 500);  // 延时确保所有文件加载和检查完毕
             }
-        </script>
+            </script>
+            
+    <div class="container">
+        <div id="returnHome" style="display:none;">
+            <a href="index.html" style="color:white;">返回主页</a>
+        </div>
+    </div>
+        
     </header>
     <main>
+
+    
         <section class="plugin" id="plugin-1">
-            <img src="shoppingcompare.png" alt="购物党自动比价工具">
+            <img src="/Users/nifangqin/Desktop/web/shoppingcompare.png" alt="购物党自动比价工具">
             <h2>购物党自动比价工具</h2>
             <p>这是一个能够进行自动京东淘宝比价的插件，帮助大学生节约钞票</p>
             <a href="https://chromewebstore.google.com/detail/%E8%B4%AD%E7%89%A9%E5%85%9A%E8%87%AA%E5%8A%A8%E6%AF%94%E4%BB%B7%E5%B7%A5%E5%85%B7/jgphnjokjhjlcnnajmfjlacjnjkhleah">了解更多</a>
         </section>
         <section class="plugin" id="plugin-2">
-            <img src="adprotect.png" alt="广告拦截器插件">
+            <img src="/Users/nifangqin/Desktop/web/adprotect.png" alt="广告拦截器插件">
             <h2>广告拦截器</h2>
             <p>去除网页上的所有广告，包括视频广告和弹出广告，提供更干净的浏览体验。</p>
             <a href="https://chromewebstore.google.com/detail/%E5%B9%BF%E5%91%8A%E7%BB%88%E7%BB%93%E8%80%85/fpdnjdlbdmifoocedhkighhlbchbiikl">了解更多</a>
         </section>
         <section class="plugin" id="plugin-3">
-            <img src="block.png" alt="防分心插件">
+            <img src="/Users/nifangqin/Desktop/web/block.png" alt="防分心插件">
             <h2>防分心插件</h2>
             <p>限制浏览某些容易上瘾网页，防走心。</p>
             <a href="https://blocksite.co/">了解更多</a>
         </section>
         <section class="plugin" id="plugin-4">
-            <img src="Googletranslation.png" alt="谷歌翻译插件">
+            <img src="/Users/nifangqin/Desktop/web/Googletranslation.png" alt="谷歌翻译插件">
             <h2>谷歌翻译</h2>
-            <p>支持多种语言的即时翻译，让你轻松浏览外文网页。妈妈再也不用担心我的学习了</p>
+            <p> 支持多种语言的即时翻译，让你轻松浏览外文网页。妈妈再也不用担心我的学习了</p>
             <a href="https://chromewebstore.google.com/detail/google-%E7%BF%BB%E8%AF%91/aapbdbdomjkkjkaonfhkkikfgjllcleb?utm_source=ext_app_menu">了解更多</a>
         </section>
         <section class="plugin" id="plugin-5">
-            <img src="tampermonkey.png" alt="篡改猴">
-            <h2>篡改猴</h2>
+            <img src="/Users/nifangqin/Desktop/web/tampermonkey.png" alt="篡改猴">
+            <h2 >篡改猴</h2>
             <p>完成kpi任务，帮助大学生刷课。</p>
             <a href="https://chromewebstore.google.com/detail/%E7%AF%A1%E6%94%B9%E7%8C%B4/dhdgffkkebhmkfjojejmpbldmpobfkfo">了解更多</a>
         </section>
